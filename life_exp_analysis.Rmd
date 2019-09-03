@@ -14,3 +14,17 @@ knitr::opts_chunk$set(echo = TRUE)
 Here, I re-examine the analysis of Oeppen and Vaupel (2002).
 
 # Analysis
+
+```{r }
+
+gapminder_unfiltered
+
+nm <- gapminder_unfiltered %>% 
+  group_by(year)
+
+nm %>% 
+  filter(lifeExp == max(lifeExp))%>%
+  select(country, lifeExp, year)%>%
+  arrange(year) ->
+  sumdat
+```
